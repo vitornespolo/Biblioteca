@@ -6,16 +6,17 @@ import lombok.Setter;
 
 @Getter
 @Setter
-//@Entity
-//@Table(name = "livro")
+@Entity
+@Table(name = "livro")
 public class Livro {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
     private String titulo;
+
     private int numeroDePaginas;
-    private Boolean lido;
-    private float nota;
+
     private Boolean ativo;
 }

@@ -7,10 +7,6 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Locale;
-
 @RestController
 @RequestMapping("/livro")
 public class LivroEndpoint {
@@ -23,19 +19,19 @@ public class LivroEndpoint {
         return "ok";
     }
 
-    @GetMapping
-    public List<Livro> findAll() {
-        List<Livro> livroList = livroQueryService.buscarLivros();
-
-        return livroList;
-    }
-
-    @PostMapping("/cadastro")
-    public ResponseEntity<Livro> cadastrar(@RequestBody Livro livro) {
-        Livro livroSalvo = livroQueryService.cadastrarLivro(livro);
-
-        return ResponseEntity.status(HttpStatus.CREATED).body(livroSalvo);
-    }
+//    @GetMapping
+//    public List<Livro> findAll() {
+//        List<Livro> livroList = livroQueryService.buscarLivros();
+//
+//        return livroList;
+//    }
+//
+//    @PostMapping("/cadastro")
+//    public ResponseEntity<Livro> cadastrar(@RequestBody Livro livro) {
+//        Livro livroSalvo = livroQueryService.cadastrarLivro(livro);
+//
+//        return ResponseEntity.status(HttpStatus.CREATED).body(livroSalvo);
+//    }
 
     @PutMapping("/update")
     public ResponseEntity<Livro> update(@PathVariable Long id, @RequestBody Livro livro) {
@@ -49,6 +45,6 @@ public class LivroEndpoint {
     @ResponseStatus(HttpStatus.NO_CONTENT)
     public void delete(@PathVariable Long id) {
 
-        Livro livro = livroQueryService.delete(id);
+        livroQueryService.delete(id);
     }
 }
