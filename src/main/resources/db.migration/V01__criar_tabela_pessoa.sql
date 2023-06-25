@@ -1,7 +1,7 @@
-CREATE TABLE PESSOA(
-  ID          INTEGER NOT NULL AUTO_INCREMENT,
-  NOME                  VARCHAR(30),
-  SOBRENOME             VARCHAR(20),
-  ATIVO                 BIT,
-  PRIMARY KEY PK_PESSOA(ID)
+CREATE TABLE pessoa(
+  id                    INTEGER NOT NULL AUTO_INCREMENT,
+  nome                  VARCHAR(30),
+  sobrenome             VARCHAR(20),
+  ativo                 BIT,
+  PRIMARY KEY pk_pessoa(id)
 )ENGINE=INNODB DEFAULT CHARSET=UTF8;

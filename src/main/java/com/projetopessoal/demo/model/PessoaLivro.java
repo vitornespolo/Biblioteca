@@ -22,7 +22,9 @@ public class PessoaLivro {
     @ManyToOne
     private Livro livro;
 
-    private float nota;
+    private String nota;
+
+    private int paginasLidas;
 
     private Boolean lido;
 

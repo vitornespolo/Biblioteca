@@ -1,13 +1,15 @@
-CREATE TABLE PESSOA_LIVRO(
-  ID                      INTEGER NOT NULL AUTO_INCREMENT,
-  TITULO                  VARCHAR(30),
-  NUMERO_DE_PAGINAS       VARCHAR(20),
-  ATIVO                   BIT,
-  ID_PESSOA               INTEGER,
-  ID_LIVRO                INTEGER,
-  PRIMARY KEY PK_PESSOA_LIVRO(ID),
-  INDEX IDX_PESSOA_LIVRO_PESSOA_01(ID_PESSOA ),
-  INDEX IDX_PESSOA_LIVRO_LIVRO_02(ID_LIVRO),
-  CONSTRAINT FK_PESSOA_LIVRO_PESSOA_01 FOREIGN KEY (ID_PESSOA) REFERENCES PESSOA (ID),
-  CONSTRAINT FK_PESSOA_LIVRO_LIVRO_02 FOREIGN KEY (ID_LIVRO) REFERENCES LIVRO (ID)
+CREATE TABLE pessoa_livro(
+  id                      INTEGER NOT NULL AUTO_INCREMENT,
+  titulo                  VARCHAR(30),
+  paginas_lidas           INTEGER,
+  nota                    VARCHAR(10),
+  livo                    BIT,
+  id_pessoa               INTEGER,
+  id_livro                INTEGER,
+  ativo                   BIT,
+  PRIMARY KEY pk_pessoa_livro(id),
+  INDEX idx_pessoa_livro_pessoa_01(id_pessoa),
+  INDEX idx_pessoa_livro_livro_02(id_livro),
+  CONSTRAINT fk_pessoa_livro_pessoa_01 FOREIGN KEY (id_pessoa) REFERENCES pessoa (id),
+  CONSTRAINT fk_pessoa_livro_livro_02 FOREIGN KEY (id_livro) REFERENCES livro (id)
 )ENGINE=INNODB DEFAULT CHARSET=UTF8;
