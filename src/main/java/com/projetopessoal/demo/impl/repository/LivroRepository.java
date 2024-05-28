@@ -8,4 +8,7 @@ public interface LivroRepository extends JpaRepository<Livro, Long> {
 
     @Query("from Livro l where l.id = :id")
     Livro buscarLivroPorId(Long id);
+
+    @Query("SELECT COUNT(l.id) from Livro l where l.titulo = :titulo")
+    Long existLivro(String titulo);
 }

@@ -1,9 +1,10 @@
 package com.projetopessoal.demo.endpoint;
 
+import com.projetopessoal.demo.impl.service.LivroCommandServiceImpl;
 import com.projetopessoal.demo.impl.service.LivroQueryServiceImpl;
 import com.projetopessoal.demo.model.Livro;
+import lombok.AllArgsConstructor;
 import lombok.NonNull;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -11,12 +12,21 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/livro")
+@AllArgsConstructor
+@RequestMapping("/livros")
 public class LivroEndpoint {
 
-    @Autowired
     @NonNull
     private LivroQueryServiceImpl livroQueryService;
+
+    @NonNull
+    private LivroCommandServiceImpl livroCommandService;
+
+    @GetMapping()
+    public List<Livro> findAll() {
+
+        return livroQueryService.buscarLivros();
+    }
 
     @GetMapping("/{id}")
     public ResponseEntity<Livro> buscarPeloId(@PathVariable Long id) {
@@ -24,15 +34,9 @@ public class LivroEndpoint {
         return livro != null ? ResponseEntity.ok(livro) : ResponseEntity.notFound().build();
     }
 
-    @GetMapping("/livros")
-    public List<Livro> findAll() {
-
-        return livroQueryService.buscarLivros();
-    }
-
     @PostMapping("/cadastrarlivro")
     public ResponseEntity<Livro> cadastrar(@RequestBody Livro livro) {
-        Livro livroSalvo = livroQueryService.cadastrarLivro(livro);
+        Livro livroSalvo = livroCommandService.cadastrarLivro(livro);
 
         return ResponseEntity.status(HttpStatus.CREATED).body(livroSalvo);
     }

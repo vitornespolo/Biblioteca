@@ -2,25 +2,27 @@ package com.projetopessoal.demo.impl.service;
 
 import com.projetopessoal.demo.impl.repository.PessoaRepository;
 import com.projetopessoal.demo.model.Pessoa;
+import lombok.AllArgsConstructor;
 import lombok.NonNull;
 import org.springframework.beans.BeanUtils;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+@AllArgsConstructor
 @Service
 public class PessoaQueryServiceImpl {
 
-    @Autowired
     @NonNull
     private PessoaRepository pessoaRepository;
 
     public List<Pessoa> buscarPessoa() {
+
         return pessoaRepository.findAll();
     }
 
     public Pessoa buscarPeloId(Long id) {
+
         return pessoaRepository.buscarPessoaPorId(id);
     }
 
@@ -29,6 +31,7 @@ public class PessoaQueryServiceImpl {
     }
 
     public Pessoa atualizar(Long id, Pessoa pessoa) {
+
         Pessoa pessoaSalvo = pessoaRepository.buscarPessoaPorId(id);
 
         BeanUtils.copyProperties(pessoa, pessoaSalvo, "id");
@@ -36,6 +39,7 @@ public class PessoaQueryServiceImpl {
     }
 
     public void delete(Long id) {
+
         pessoaRepository.deleteById(id);
     }
 }

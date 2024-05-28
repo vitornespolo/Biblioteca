@@ -2,6 +2,7 @@ package com.projetopessoal.demo.model;
 
 import jakarta.persistence.*;
 import lombok.Getter;
+import lombok.NonNull;
 import lombok.Setter;
 
 @Getter
@@ -14,8 +15,10 @@ public class Pessoa {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @NonNull
     private String nome;
 
+    @NonNull
     private String sobrenome;
 
     private Boolean ativo;

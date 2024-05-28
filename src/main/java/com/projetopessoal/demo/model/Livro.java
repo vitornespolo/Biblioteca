@@ -2,6 +2,7 @@ package com.projetopessoal.demo.model;
 
 import jakarta.persistence.*;
 import lombok.Getter;
+import lombok.NonNull;
 import lombok.Setter;
 
 @Getter
@@ -14,6 +15,7 @@ public class Livro {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @NonNull
     private String titulo;
 
     private int numeroDePaginas;
