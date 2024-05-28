@@ -1,6 +1,6 @@
-package com.projetopessoal.demo.impl.repository;
+package com.projetopessoal.biblioteca.impl.repository;
 
-import com.projetopessoal.demo.model.Pessoa;
+import com.projetopessoal.biblioteca.model.Pessoa;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 

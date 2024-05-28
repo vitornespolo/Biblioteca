@@ -1,4 +1,4 @@
-package com.projetopessoal.demo;
+package com.projetopessoal.biblioteca;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

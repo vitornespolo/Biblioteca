@@ -1,4 +1,4 @@
-package com.projetopessoal.demo.model;
+package com.projetopessoal.biblioteca.model;
 
 import jakarta.persistence.*;
 import lombok.Getter;

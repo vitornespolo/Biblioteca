@@ -1,6 +1,6 @@
-package com.projetopessoal.demo.impl.repository;
+package com.projetopessoal.biblioteca.impl.repository;
 
-import com.projetopessoal.demo.model.Livro;
+import com.projetopessoal.biblioteca.model.Livro;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.PersistenceContext;
 import jakarta.persistence.TypedQuery;

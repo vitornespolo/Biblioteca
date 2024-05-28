@@ -1,10 +1,11 @@
-package com.projetopessoal.demo.endpoint;
+package com.projetopessoal.biblioteca.endpoint;
 
-import com.projetopessoal.demo.impl.service.PessoaQueryServiceImpl;
-import com.projetopessoal.demo.model.Pessoa;
+import com.projetopessoal.biblioteca.impl.service.PessoaQueryServiceImpl;
+import com.projetopessoal.biblioteca.model.Pessoa;
 import jakarta.servlet.http.HttpServletResponse;
-import lombok.AllArgsConstructor;
 import lombok.NonNull;
+import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -12,7 +13,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@AllArgsConstructor
+@RequiredArgsConstructor(onConstructor = @__(@Autowired))
 @RequestMapping("/pessoas")
 public class PessoaEndpoint {
 

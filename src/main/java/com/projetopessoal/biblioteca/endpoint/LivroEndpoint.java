@@ -1,10 +1,11 @@
-package com.projetopessoal.demo.endpoint;
+package com.projetopessoal.biblioteca.endpoint;
 
-import com.projetopessoal.demo.impl.service.LivroCommandServiceImpl;
-import com.projetopessoal.demo.impl.service.LivroQueryServiceImpl;
-import com.projetopessoal.demo.model.Livro;
-import lombok.AllArgsConstructor;
+import com.projetopessoal.biblioteca.impl.service.LivroCommandServiceImpl;
+import com.projetopessoal.biblioteca.impl.service.LivroQueryServiceImpl;
+import com.projetopessoal.biblioteca.model.Livro;
 import lombok.NonNull;
+import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -12,7 +13,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@AllArgsConstructor
+@RequiredArgsConstructor(onConstructor = @__(@Autowired))
 @RequestMapping("/livros")
 public class LivroEndpoint {
 
@@ -30,15 +31,17 @@ public class LivroEndpoint {
 
     @GetMapping("/{id}")
     public ResponseEntity<Livro> buscarPeloId(@PathVariable Long id) {
+
         Livro livro = livroQueryService.buscarPeloId(id);
         return livro != null ? ResponseEntity.ok(livro) : ResponseEntity.notFound().build();
     }
 
     @PostMapping("/cadastrarlivro")
-    public ResponseEntity<Livro> cadastrar(@RequestBody Livro livro) {
+    public ResponseEntity<Livro> cadastrar(@RequestBody Livro livro) throws Exception {
+
         Livro livroSalvo = livroCommandService.cadastrarLivro(livro);
 
-        return ResponseEntity.status(HttpStatus.CREATED).body(livroSalvo);
+        return new ResponseEntity(livroSalvo, HttpStatus.CREATED);
     }
 
     @PutMapping("/updatelivro/{id}")
