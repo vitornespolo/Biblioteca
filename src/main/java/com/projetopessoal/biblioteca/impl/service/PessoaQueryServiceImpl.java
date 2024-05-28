@@ -1,15 +1,16 @@
-package com.projetopessoal.demo.impl.service;
+package com.projetopessoal.biblioteca.impl.service;
 
-import com.projetopessoal.demo.impl.repository.PessoaRepository;
-import com.projetopessoal.demo.model.Pessoa;
-import lombok.AllArgsConstructor;
+import com.projetopessoal.biblioteca.impl.repository.PessoaRepository;
+import com.projetopessoal.biblioteca.model.Pessoa;
 import lombok.NonNull;
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.BeanUtils;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
-@AllArgsConstructor
+@RequiredArgsConstructor(onConstructor = @__(@Autowired))
 @Service
 public class PessoaQueryServiceImpl {
 
