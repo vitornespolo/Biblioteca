@@ -30,4 +30,6 @@ public class PessoaLivro {
 
     private Boolean ativo;
 
+    private TipoStatusEnum tipoStatusEnum;
+
 }

@@ -9,6 +9,10 @@ import lombok.Setter;
 @Setter
 public class Endereco {
 
+    /*todo
+    Criar Tabela Endereco no banco, tabela TipoStatus para leitura, ajustar para inserir a api viacep na tabela endereço.
+     */
+
     private String cep;
     private String logradouro;
     private String complemento;
